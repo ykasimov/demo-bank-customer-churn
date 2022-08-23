@@ -1,3 +1,10 @@
+demo-model-2:
+  description: Demo for baader
+  labels:
+  - churn
+  - customer
+  path: .mlem/test_model
+  type: model
 randomforest-model:
   description: Random forest classification model
   labels:
