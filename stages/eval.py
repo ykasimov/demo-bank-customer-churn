@@ -61,7 +61,7 @@ def eval(data_dir, model_dir, perm_imp_model_path, random_state):
     }
     json.dump(
         obj=metrics,
-        fp=open('metrics.json', 'w'),
+        fp=open('metrics_new.json', 'w'),
         indent=4, 
         sort_keys=True
     )

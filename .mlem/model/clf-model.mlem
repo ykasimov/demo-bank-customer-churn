@@ -1,7 +1,7 @@
 artifacts:
   data:
-    hash: 6cdb89703cc613f2346a847301f362f1
-    size: 16506539
+    hash: be826b2eabacfcc9d619c1f6de7f7fa8
+    size: 16506521
     type: dvc
     uri: clf-model
 description: Customer Churn Classifier Model
@@ -155,17 +155,17 @@ model_type:
 object_type: model
 requirements:
 - module: numpy
-  version: 1.22.4
+  version: 1.23.1
 - module: pandas
   version: 1.4.3
 - module: sklearn
-  version: 1.1.2
+  version: 1.1.1
 - module: box
-  version: 6.0.2
+  version: 6.0.1
 - module: ruamel
-- module: scipy
-  version: 1.8.1
-- module: toml
-  version: 0.10.2
 - module: yaml
   version: '6.0'
+- module: scipy
+  version: 1.9.0
+- module: toml
+  version: 0.10.2

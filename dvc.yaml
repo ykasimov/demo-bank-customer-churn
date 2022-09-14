@@ -42,7 +42,7 @@ stages:
       - feat_imp.csv:
           cache: false
     metrics:
-      - metrics.json:
+      - metrics_new.json:
           cache: false
     plots:
       - eval_plots/cm.png:
