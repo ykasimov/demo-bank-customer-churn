@@ -1,3 +1,6 @@
+awesome-model:
+  path: s3://path/model
+  type: model
 randomforest-model:
   description: Random forest classification model
   labels:
