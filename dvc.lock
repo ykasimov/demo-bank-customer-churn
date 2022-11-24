@@ -90,6 +90,45 @@ stages:
     - path: model//clf-model.mlem
       md5: 57ba2d7679a35dad485dcd4ddab65900
       size: 3090
+  compare:
+    cmd: python stages/compare.py --config=params.yaml
+    deps:
+    - path: data/X_test.pkl
+      md5: fd3007d1a7bdff44ff89571ebedd519e
+      size: 93528
+    - path: data/y_test.pkl
+      md5: 745eb9da6d360516befe492af2787d41
+      size: 30613
+    - path: model/clf-model
+      md5: 8067aa5cb8dff89825991f31e8c50d47
+      size: 183880
+    - path: stages/compare.py
+      md5: e62380b516607513ac33224e8f31b260
+      size: 1704
+    params:
+      params.yaml:
+        base:
+          project: bank_customer_churn
+          data_dir: data
+          data_fname: Churn_Modelling_0.csv
+          cat_cols:
+          - Geography
+          num_cols:
+          - CreditScore
+          - Age
+          - Tenure
+          - Balance
+          - NumOfProducts
+          - HasCrCard
+          - IsActiveMember
+          - EstimatedSalary
+          targ_col: Exited
+          random_state: 42
+          model_dir: model/
+    outs:
+    - path: comparison_metrics.json
+      md5: 7f068baaf359d91a873052b2412e8cdf
+      size: 95
   eval:
     cmd: python stages/eval.py --config=params.yaml
     deps:
@@ -153,42 +192,3 @@ stages:
     - path: models/perm_imp.joblib
       md5: a6bb8ff5a5870717a6e5333d72cd3805
       size: 185131
-  compare:
-    cmd: python stages/compare.py --config=params.yaml
-    deps:
-    - path: data/X_test.pkl
-      md5: fd3007d1a7bdff44ff89571ebedd519e
-      size: 93528
-    - path: data/y_test.pkl
-      md5: 745eb9da6d360516befe492af2787d41
-      size: 30613
-    - path: model/clf-model
-      md5: 8067aa5cb8dff89825991f31e8c50d47
-      size: 183880
-    - path: stages/compare.py
-      md5: 60d7413a5e2f45e1f9dbdf66365e32c8
-      size: 1634
-    params:
-      params.yaml:
-        base:
-          project: bank_customer_churn
-          data_dir: data
-          data_fname: Churn_Modelling_0.csv
-          cat_cols:
-          - Geography
-          num_cols:
-          - CreditScore
-          - Age
-          - Tenure
-          - Balance
-          - NumOfProducts
-          - HasCrCard
-          - IsActiveMember
-          - EstimatedSalary
-          targ_col: Exited
-          random_state: 42
-          model_dir: model/
-    outs:
-    - path: comparison_metrics.json
-      md5: 7f068baaf359d91a873052b2412e8cdf
-      size: 95
