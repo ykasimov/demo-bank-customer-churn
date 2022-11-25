@@ -35,12 +35,10 @@ def compare(model_path: str, compare_to: str):
     best_model = new_model
     # gto.api.register(git.Repo.refs)
     # gto.api.assign()
-    new_model_better = True
     metrics = {"old_model_metrics": {"acc": 0.8, "f1": 0.83},
                 "new_model_metrics": {"acc": 0.86, "f1": 0.88}}
     with open("comparison_metrics.json", "w") as f:
         json.dump(metrics, f)
-    return new_model_better
 
 if __name__=="__main__":
     args_parser = argparse.ArgumentParser()
@@ -49,4 +47,4 @@ if __name__=="__main__":
 
     params = load_params(params_path=args.config)
     model_path = "model/clf-model"
-    sys.exit(compare(model_path=model_path, compare_to="anavo-model"))
+    compare(model_path=model_path, compare_to="anavo-model")
