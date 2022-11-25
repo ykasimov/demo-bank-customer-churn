@@ -40,8 +40,6 @@ def compare(model_path: str, compare_to: str):
                 "new_model_metrics": {"acc": 0.86, "f1": 0.88}}
     with open("comparison_metrics.json", "w") as f:
         json.dump(metrics, f)
-    test = dvclive.Live()
-    test.log_metric()
     return new_model_better
 
 if __name__=="__main__":
