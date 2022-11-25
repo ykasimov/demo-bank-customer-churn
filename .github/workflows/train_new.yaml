@@ -54,5 +54,6 @@ jobs:
           echo "## Confusion Matrix" >> report.md
           cml pr create .
           gto register anavo-model -m "update model" --bump-patch
+          git push --tags
           cml publish eval_plots/cm.png --md >> report.md
           cml send-comment report.md
