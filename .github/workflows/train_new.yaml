@@ -53,6 +53,6 @@ jobs:
           dvc metrics show --md >> report.md
           echo "## Confusion Matrix" >> report.md
           cml pr create .
-          gto register -m "update model" --bump-patch
+          gto register anavo-model -m "update model" --bump-patch
           cml publish eval_plots/cm.png --md >> report.md
           cml send-comment report.md
