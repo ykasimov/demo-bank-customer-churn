@@ -103,8 +103,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: stages/compare.py
-      md5: e62380b516607513ac33224e8f31b260
-      size: 1704
+      md5: 161e370a109d29d468dd0c15b75b23f5
+      size: 1651
     params:
       params.yaml:
         base:
