@@ -80,16 +80,16 @@ stages:
           model_type: randomforest
           update_model: anavo-model
           params:
-            n_estimators: 45
+            n_estimators: 55
             max_depth: 5
             warm_start: true
     outs:
     - path: model//clf-model
-      md5: 8067aa5cb8dff89825991f31e8c50d47
-      size: 183880
+      md5: c1ee80ed9469f6c286173580e3c999ff
+      size: 222423
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: a64ec4cfe5c2655f9b65f9df247d263b
+      size: 1706
   compare:
     cmd: python stages/compare.py --config=params.yaml
     deps:
@@ -100,11 +100,11 @@ stages:
       md5: 745eb9da6d360516befe492af2787d41
       size: 30613
     - path: model/clf-model
-      md5: 8067aa5cb8dff89825991f31e8c50d47
-      size: 183880
+      md5: c1ee80ed9469f6c286173580e3c999ff
+      size: 222423
     - path: stages/compare.py
-      md5: e62380b516607513ac33224e8f31b260
-      size: 1704
+      md5: 161e370a109d29d468dd0c15b75b23f5
+      size: 1651
     params:
       params.yaml:
         base:
@@ -139,11 +139,11 @@ stages:
       md5: 745eb9da6d360516befe492af2787d41
       size: 30613
     - path: model//clf-model
-      md5: 8067aa5cb8dff89825991f31e8c50d47
-      size: 183880
+      md5: c1ee80ed9469f6c286173580e3c999ff
+      size: 222423
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: a64ec4cfe5c2655f9b65f9df247d263b
+      size: 1706
     - path: stages/eval.py
       md5: 0f8bd41fc66ef9117d6e3451a3ed3631
       size: 2700
@@ -173,22 +173,22 @@ stages:
           model_type: randomforest
           update_model: anavo-model
           params:
-            n_estimators: 45
+            n_estimators: 55
             max_depth: 5
             warm_start: true
     outs:
     - path: eval_plots/cm.png
-      md5: 55cc33f6631a0e1dab5edf072633dbf3
-      size: 10604
+      md5: 356c92e510ba172be5015a2642fe11f4
+      size: 10534
     - path: eval_plots/plots/sklearn/roc.json
-      md5: 266b3a4e8edd52b0ec1bd639b7f65772
-      size: 45660
+      md5: 13a45d25cd0c65ec4c798c7190b90bfd
+      size: 41712
     - path: feat_imp.csv
-      md5: 6c5315147f6ddba952a32b186d608e7b
-      size: 284
+      md5: 65b806f5d3ecc1f2ae31279b08148b2c
+      size: 304
     - path: metrics.json
-      md5: 0fb819bbc70099f2af6749a8ba1b57ff
-      size: 65
+      md5: 3f347ce00a234b93063bc4d91a7ab91d
+      size: 67
     - path: models/perm_imp.joblib
-      md5: a6bb8ff5a5870717a6e5333d72cd3805
-      size: 185131
+      md5: c46f70817df0012bcb43bd945f13ccce
+      size: 223755
