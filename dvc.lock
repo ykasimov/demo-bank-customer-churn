@@ -29,6 +29,7 @@ stages:
           targ_col: Exited
           random_state: 42
           model_dir: model/
+          model_file: clf-model
         data_split:
           test_size: 0.25
     outs:
@@ -54,8 +55,8 @@ stages:
       md5: dbb125a59205f428a0b3e535efdfe83d
       size: 90598
     - path: stages/train.py
-      md5: 5f07d5209c52f77d2e474d539c59987f
-      size: 3076
+      md5: 67644e02d26811ad6690245d4a11adfc
+      size: 3321
     params:
       params.yaml:
         base:
@@ -76,9 +77,11 @@ stages:
           targ_col: Exited
           random_state: 42
           model_dir: model/
+          model_file: clf-model
         train:
           model_type: randomforest
           update_model: anavo-model
+          update_model_stage: prod
           params:
             n_estimators: 45
             max_depth: 5
@@ -88,8 +91,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: 37f014fec52930732ac3a6ee38bf2e54
+      size: 1706
   compare:
     cmd: python stages/compare.py --config=params.yaml
     deps:
@@ -103,8 +106,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: stages/compare.py
-      md5: e62380b516607513ac33224e8f31b260
-      size: 1704
+      md5: 8808ec1a9b6b3ab329bcd5079b1f889c
+      size: 1201
     params:
       params.yaml:
         base:
@@ -125,6 +128,7 @@ stages:
           targ_col: Exited
           random_state: 42
           model_dir: model/
+          model_file: clf-model
     outs:
     - path: comparison_metrics.json
       md5: 7f068baaf359d91a873052b2412e8cdf
@@ -142,8 +146,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: 37f014fec52930732ac3a6ee38bf2e54
+      size: 1706
     - path: stages/eval.py
       md5: 0f8bd41fc66ef9117d6e3451a3ed3631
       size: 2700
@@ -167,11 +171,13 @@ stages:
           targ_col: Exited
           random_state: 42
           model_dir: model/
+          model_file: clf-model
         data_split:
           test_size: 0.25
         train:
           model_type: randomforest
           update_model: anavo-model
+          update_model_stage: prod
           params:
             n_estimators: 45
             max_depth: 5

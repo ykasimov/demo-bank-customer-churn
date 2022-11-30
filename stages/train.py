@@ -23,10 +23,12 @@ import joblib
 
 def train(data_dir,
           model_dir,
+          model_file,
           model_type,
           cat_cols,
           random_state,
           update_model: str = None,
+          update_model_stage: str = "prod",
           **train_params):
     X_train = pd.read_pickle(data_dir / 'X_train.pkl')
     y_train = pd.read_pickle(data_dir / 'y_train.pkl')
@@ -57,8 +59,8 @@ def train(data_dir,
     )
     if update_model:
         repo = "."
-        revision = gto.api.find_versions_in_stage(repo=repo, name=update_model, stage="prod")[0].ref
-        with dvc.api.open("model/clf-model", repo=repo, rev=revision, mode="rb") as f:
+        revision = gto.api.find_versions_in_stage(repo=repo, name=update_model, stage=update_model_stage)[0].ref
+        with dvc.api.open(f"{model_dir}/{model_file}", repo=repo, rev=revision, mode="rb") as f:
             model = joblib.load(f)
             model["clf"].n_estimators += (train_params.get("n_estimators") - model["clf"].n_estimators)
     else:
@@ -69,7 +71,7 @@ def train(data_dir,
     model.fit(X_train, y_train)
     save(
         model,
-        model_dir / "clf-model",
+        f"{model_dir}/{model_file}",
         sample_data=X_train
     )
 
@@ -88,10 +90,14 @@ if __name__ == '__main__':
     model_type = params.train.model_type
     train_params = params.train.params
     update_model = params.train.update_model
+    update_model_stage = params.train.update_model_stage
+    model_file = params.base.model_file
     train(data_dir=data_dir,
           model_dir=model_dir,
+          model_file=model_file,
           model_type=model_type,
           cat_cols=cat_cols,
           random_state=random_state,
           update_model=update_model,
+          update_model_stage=update_model_stage,
           **train_params)
