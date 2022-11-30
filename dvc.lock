@@ -54,8 +54,8 @@ stages:
       md5: dbb125a59205f428a0b3e535efdfe83d
       size: 90598
     - path: stages/train.py
-      md5: 5f07d5209c52f77d2e474d539c59987f
-      size: 3076
+      md5: fd2ef94d541a4dbb542e66acd55abf28
+      size: 3050
     params:
       params.yaml:
         base:
@@ -88,8 +88,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: ed22a8d5789f10df6a08566fe5c797ef
+      size: 1706
   compare:
     cmd: python stages/compare.py --config=params.yaml
     deps:
@@ -103,8 +103,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: stages/compare.py
-      md5: e62380b516607513ac33224e8f31b260
-      size: 1704
+      md5: 8808ec1a9b6b3ab329bcd5079b1f889c
+      size: 1201
     params:
       params.yaml:
         base:
@@ -142,8 +142,8 @@ stages:
       md5: 8067aa5cb8dff89825991f31e8c50d47
       size: 183880
     - path: model//clf-model.mlem
-      md5: 57ba2d7679a35dad485dcd4ddab65900
-      size: 3090
+      md5: ed22a8d5789f10df6a08566fe5c797ef
+      size: 1706
     - path: stages/eval.py
       md5: 0f8bd41fc66ef9117d6e3451a3ed3631
       size: 2700
