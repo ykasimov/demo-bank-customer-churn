@@ -28,7 +28,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
-          aws_session_token: ${{ secrets.aws_session_token }}
+          aws-session-token: ${{ secrets.aws_session_token }}
       - name: Setup Git User
         run: cml ci
         env:
