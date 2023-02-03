@@ -1,3 +1,6 @@
+random-model-name:
+  path: random-path
+  type: model
 randomforest-model:
   description: Random forest classification model
   labels:
