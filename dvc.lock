@@ -18,14 +18,8 @@ stages:
           cat_cols:
           - Geography
           num_cols:
-          - CreditScore
           - Age
-          - Tenure
-          - Balance
-          - NumOfProducts
           - HasCrCard
-          - IsActiveMember
-          - EstimatedSalary
           targ_col: Exited
           random_state: 42
           model_dir: model/
@@ -33,11 +27,11 @@ stages:
           test_size: 0.25
     outs:
     - path: data/X_test.pkl
-      md5: fcd1b7e28f320159a0eed658ee56ba97
-      size: 186030
+      md5: 8a5460dffc11c27a79bf536e74a86c01
+      size: 65803
     - path: data/X_train.pkl
-      md5: 7caa1ff6b9fd082639f697e702dacb15
-      size: 556049
+      md5: 18484bff4d9b6edd0bfb61e7826e7e1d
+      size: 195813
     - path: data/y_test.pkl
       md5: 7743d704b8b97cc303ceef12b9be6832
       size: 60613
@@ -48,8 +42,8 @@ stages:
     cmd: python stages/train.py --config=params.yaml
     deps:
     - path: data/X_train.pkl
-      md5: 7caa1ff6b9fd082639f697e702dacb15
-      size: 556049
+      md5: 18484bff4d9b6edd0bfb61e7826e7e1d
+      size: 195813
     - path: data/y_train.pkl
       md5: c5e58ac55c3f8077ffac66b0e9b3536a
       size: 180622
@@ -65,14 +59,8 @@ stages:
           cat_cols:
           - Geography
           num_cols:
-          - CreditScore
           - Age
-          - Tenure
-          - Balance
-          - NumOfProducts
           - HasCrCard
-          - IsActiveMember
-          - EstimatedSalary
           targ_col: Exited
           random_state: 42
           model_dir: model/
@@ -83,26 +71,26 @@ stages:
             max_depth: 20
     outs:
     - path: model//clf-model
-      md5: c8a06d11eee4053037d215f4fe6b7ae5
-      size: 20931746
+      md5: 914e8e5f833486a7f81310646c4faf28
+      size: 6079773
     - path: model//clf-model.mlem
-      md5: c93486baeb8ab115c8116cc733bc5bbe
-      size: 1708
+      md5: 96f8c28b5d247b9ae46ae01c708a1711
+      size: 1195
   eval:
     cmd: python stages/eval.py --config=params.yaml
     deps:
     - path: data/X_test.pkl
-      md5: fcd1b7e28f320159a0eed658ee56ba97
-      size: 186030
+      md5: 8a5460dffc11c27a79bf536e74a86c01
+      size: 65803
     - path: data/y_test.pkl
       md5: 7743d704b8b97cc303ceef12b9be6832
       size: 60613
     - path: model//clf-model
-      md5: c8a06d11eee4053037d215f4fe6b7ae5
-      size: 20931746
+      md5: 914e8e5f833486a7f81310646c4faf28
+      size: 6079773
     - path: model//clf-model.mlem
-      md5: c93486baeb8ab115c8116cc733bc5bbe
-      size: 1708
+      md5: 96f8c28b5d247b9ae46ae01c708a1711
+      size: 1195
     - path: stages/eval.py
       md5: 0f8bd41fc66ef9117d6e3451a3ed3631
       size: 2700
@@ -115,14 +103,8 @@ stages:
           cat_cols:
           - Geography
           num_cols:
-          - CreditScore
           - Age
-          - Tenure
-          - Balance
-          - NumOfProducts
           - HasCrCard
-          - IsActiveMember
-          - EstimatedSalary
           targ_col: Exited
           random_state: 42
           model_dir: model/
@@ -135,17 +117,17 @@ stages:
             max_depth: 20
     outs:
     - path: eval_plots/cm.png
-      md5: e56a750802e2954202029054d2f625bd
-      size: 10413
+      md5: 95cf358bc5eb5a77b3a97d29726cff9d
+      size: 12924
     - path: eval_plots/plots/sklearn/roc.json
-      md5: f09252db150e39ed71ea13ab914362cf
-      size: 86311
+      md5: 2b6f6f86066d425fd8f98b3d8dec753c
+      size: 36865
     - path: feat_imp.csv
-      md5: 0877a48b2e2935cb7f596d30137a4e2c
-      size: 299
+      md5: a57b2715fea7f605c88bd2e5f4b8066a
+      size: 103
     - path: metrics.json
-      md5: 36658c4136489292fd5e086f04a2f1cb
-      size: 67
+      md5: 19921bc0ab8dc858470d1ac3d20fc96c
+      size: 68
     - path: models/perm_imp.joblib
-      md5: 64ec49282ee1bea38d577c92914b03be
-      size: 20930427
+      md5: b117ff04dec6a8733a8d85a4bbdfbf22
+      size: 6083259

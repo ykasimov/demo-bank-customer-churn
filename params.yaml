@@ -5,14 +5,14 @@ base:
   cat_cols:
   - Geography
   num_cols:
-  - CreditScore
+#  - CreditScore
   - Age
-  - Tenure
-  - Balance
-  - NumOfProducts
+#  - Tenure
+#  - Balance
+#  - NumOfProducts
   - HasCrCard
-  - IsActiveMember
-  - EstimatedSalary
+#  - IsActiveMember
+#  - EstimatedSalary
   targ_col: Exited
   random_state: 42
   model_dir: model/
