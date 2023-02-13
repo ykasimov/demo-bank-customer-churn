@@ -5,7 +5,7 @@ on:
     inputs:
       namespace:
         description: 'K8S Namespace'
-        type: environment
+        type: string
         required: true
 
 jobs:
