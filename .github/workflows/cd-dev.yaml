@@ -19,5 +19,5 @@ jobs:
       contents: read
     uses: ./.github/workflows/mlem-deploy.yaml
     with:
-      env: ${{ github.event.inputs.namespace }}
+      namespace: ${{ github.event.inputs.namespace }}
     secrets: inherit
