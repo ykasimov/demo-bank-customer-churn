@@ -1,7 +1,7 @@
 name: MLEM deploy
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       namespace:
         description: 'K8S Namespace'
