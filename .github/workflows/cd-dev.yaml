@@ -1,0 +1,22 @@
+name: CD workflow for deploying models
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run the workflow against'
+        type: environment
+        required: true
+  pull_request:
+    types: [closed]  # when PR is merged, CD will be triggered
+
+jobs:
+
+  deploy-to-ecs:
+    permissions:
+      id-token: write # need this for OIDC
+      contents: read
+    uses: wenqiglantz/reusable-workflows-modules/.github/workflows/java-api-deploy-to-ecs.yml@main
+    with:
+      env: ${{ github.event.inputs.environment }}
+    secrets: inherit
