@@ -37,6 +37,8 @@ jobs:
         env:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
         run: |
-          pip install -r requirements.txt
-          dvc pull .mlem/model/clf-model
-          mlem deployment run api-customer-churn-dev
+           echo "===========NAMESPACE============"
+           echo ${{ github.event.inputs.namespace }}
+#          pip install -r requirements.txt
+#          dvc pull .mlem/model/clf-model
+#          mlem deployment run api-customer-churn-dev
