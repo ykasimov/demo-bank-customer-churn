@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank-serving
+  labels:
+    app: bank-serving
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bank-serving
+  template:
+    metadata:
+      labels:
+        app: bank-serving
+    spec:
+      containers:
+      - name: bank-serving
+        image: 342840881361.dkr.ecr.us-east-2.amazonaws.com/mlem-test:8bc7e3862320bea46d83f39d74eb7e70
