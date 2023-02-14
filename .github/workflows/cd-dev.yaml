@@ -1,12 +1,12 @@
 name: CD workflow for deploying models
 
 on:
-  workflow_dispatch:
-    inputs:
-      namespace:
-        description: 'K8S Namespace'
-        type: string
-        required: true
+#  workflow_dispatch:
+ #   inputs:
+  #    namespace:
+   #     description: 'K8S Namespace'
+    #    type: string
+     #   required: true
     push:
 #      tags:
 #        - "*#dev*"
@@ -19,5 +19,5 @@ jobs:
       contents: read
     uses: ./.github/workflows/mlem-deploy.yaml
     with:
-      namespace: ${{ github.event.inputs.namespace }}
+      namespace: development
     secrets: inherit
