@@ -1,3 +1,6 @@
+random-forest-model:
+  path: model/clf-model
+  type: model
 random-model-name:
   path: random-path
   type: model
